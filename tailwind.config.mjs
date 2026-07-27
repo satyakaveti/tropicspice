@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#21550A',   // dark green ("Tropic" leaf/highlights)
-        accent: '#1B4D0A',    // forest green — back-to-top, social hover, buttons (from logo "Tropic" wordmark + globe)
+        primary: '#125920',   // brand green (text, titles, cards active highlights)
+        accent: '#125920',    // brand green (buttons, back-to-top, hover states)
         dark: '#2B1B0F',      // deep brown-black — header / footer / testimonial card bg
         darker: '#1C110A',    // copyright bar
         cream: '#FFFFFF',     // white background
@@ -18,7 +18,7 @@ export default {
       },
       fontFamily: {
         script: ['Montez', 'cursive'],
-        serif: ['Suranna', 'serif'],
+        serif: ['Georgia', 'serif'],
         sans: ['Montserrat', 'sans-serif'],
       },
       maxWidth: {
