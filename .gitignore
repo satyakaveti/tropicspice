@@ -144,3 +144,8 @@ vite.config.ts.timestamp-*
 /.idea/
 /.idea/
 /.idea/libraries/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
