@@ -72,15 +72,8 @@ npm run preview  # serve the compiled production build locally
 
 ## 4. Before Going Live — Action Items (Form & Email Configuration)
 
-1. **Contact Form Config:** 
-   * Open `src/pages/contact.astro`
-   * Find the `<form>` tag:
-     ```html
-     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" ...>
-     ```
-   * Replace `YOUR_FORM_ID` with your real Formspree form ID (get a free one at [formspree.io](https://formspree.io)). 
-   * Formspree will automatically handle form submissions and forward them to your chosen email address. Alternatively, you can swap it with Netlify Forms, Web3Forms, or custom endpoints.
-2. **Domain Config:** Update `astro.config.mjs` and the contact page/footer mailto links with your real domain details.
+1. **Contact Form Inquiries:** The contact form in `src/pages/contact.astro` is pre-configured to use **Web3Forms** (which forwards submissions to your email) with the access key `a54ea2ae-1142-4035-b4b9-7d273332fce6`. If you need to change the recipient email in the future, simply generate a new access key at [web3forms.com](https://web3forms.com) and swap the value in the hidden input tag.
+2. **Email / Domain Config:** Update `astro.config.mjs` and the contact page/footer mailto links with your real domain details.
 3. **Address details:** Review and verify the location coordinates/address in `src/pages/contact.astro` and `src/layouts/BaseLayout.astro`.
 
 ---
@@ -92,6 +85,7 @@ npm run preview  # serve the compiled production build locally
 3. Build settings:
    - **Framework preset:** Astro
    - **Build command:** `npm run build`
+   - **Deploy command:** `npx wrangler pages deploy dist`
    - **Build output directory:** `dist`
 4. Deploy. Cloudflare gives you a `*.pages.dev` URL immediately.
 5. Add your custom domain: **Custom domains → Set up a domain** → enter your real domain → Cloudflare shows you the DNS records to add.
