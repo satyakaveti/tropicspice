@@ -1,0 +1,88 @@
+---
+const products = [
+  { name: 'Turmeric / Haldi Powder', script: 'Spices', img: '/images/haldi-powder.jpg', href: '/products/spices' },
+  { name: 'Cumin / Jira', script: 'Seeds', img: '/images/cumin.jpg', href: '/products/spices' },
+  { name: 'Indian Red Chili / Lal Mirchi Powder', script: 'Spices', img: '/images/indian-red-chili-powder.jpg', href: '/products/spices' },
+  { name: 'Green Cardamom / Ilaychi', script: 'Spices', img: '/images/green-cardamom.jpg', href: '/products/spices' },
+  { name: 'Whole Turmeric / Haldi', script: 'Whole Spices', img: '/images/whole-haldi.jpg', href: '/products/spices' },
+  { name: 'Coriander / Dhana Powder', script: 'Spices', img: '/images/coriander-powder.jpg', href: '/products/spices' },
+  { name: 'Tej Patta', script: 'Whole Spices', img: '/images/tej-patta.jpg', href: '/products/spices' },
+  { name: 'Whole Indian Red Chili / Lal Mirchi', script: 'Whole Spices', img: '/images/whole-indian-red-chili.jpg', href: '/products/spices' },
+];
+---
+<section class="relative bg-white py-16 md:py-24 overflow-hidden border-t border-gray-50">
+  <div class="max-w-container mx-auto px-4">
+    
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-brown text-sm font-bold tracking-wider uppercase inline-block mb-2">
+        // Export Showcase
+      </span>
+      <h2 class="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+        Our Featured <span class="text-primary font-serif font-medium">Products</span>
+      </h2>
+      <p class="text-muted mt-3 text-sm md:text-base">
+        Explore our curated selection of premium Indian spices, herbs, and mouth fresheners exported worldwide.
+      </p>
+    </div>
+
+    <!-- Swiper container with modern card styling -->
+    <div class="swiper productSwiper !pb-12">
+      <div class="swiper-wrapper">
+        {products.map((p) => (
+          <div class="swiper-slide">
+            <a href={p.href} class="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300">
+              <!-- Card Image -->
+              <div class="w-full aspect-[4/3] md:aspect-square overflow-hidden relative bg-gray-50">
+                <img src={p.img} alt={p.name} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">
+                  {p.script}
+                </span>
+              </div>
+              <!-- Card Content -->
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors duration-200 line-clamp-1">
+                  {p.name}
+                </h3>
+                <p class="text-xs text-muted mt-1">100% Organic & Sourced Directly</p>
+                <div class="inline-flex items-center gap-1.5 text-xs text-primary font-bold uppercase mt-4">
+                  View Details <i class="fa-solid fa-arrow-right transition-transform duration-250 group-hover:translate-x-1"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Navigation arrows below Swiper -->
+    <div class="flex justify-center gap-3">
+      <button class="swiper-button-prev-custom w-12 h-12 rounded-full border border-gray-200 bg-white text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition flex items-center justify-center shadow-sm">
+        <i class="fa-solid fa-chevron-left text-sm"></i>
+      </button>
+      <button class="swiper-button-next-custom w-12 h-12 rounded-full border border-gray-200 bg-white text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition flex items-center justify-center shadow-sm">
+        <i class="fa-solid fa-chevron-right text-sm"></i>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.productSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 4 },
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-custom',
+        prevEl: '.swiper-button-prev-custom',
+      },
+    });
+  });
+</script>

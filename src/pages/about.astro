@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InnerBanner from '../components/InnerBanner.astro';
+---
+<BaseLayout title="About Us | TROPICSPICE GLOBAL">
+  <InnerBanner image="/images/product-banner.jpg" title="About Us" />
+
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-container mx-auto px-4">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Image with offset border -->
+        <div class="lg:col-span-5 flex justify-center relative">
+          <div class="absolute -top-4 -left-4 w-24 h-24 bg-[radial-gradient(#21550a_1px,transparent_1px)] [background-size:12px_12px] opacity-20"></div>
+          <img src="/images/abt-img.png" alt="TropicSpice Global Selection" class="w-full max-w-[380px] md:max-w-[420px] rounded-[32px] object-cover shadow-xl border-4 border-white relative z-10" />
+        </div>
+        
+        <!-- Right Column: Info & Cards -->
+        <div class="lg:col-span-7 space-y-8">
+          <div>
+            <span class="text-brown text-sm font-bold tracking-wider uppercase">// Our Core Values</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-2 leading-tight">
+              Exporting With <span class="text-primary font-serif font-medium">Integrity</span> & Passion
+            </h2>
+            <p class="text-muted mt-4 leading-relaxed">
+              TropicSpice Global is dedicated to supplying standard-grade Indian agricultural goods to partners worldwide. Here is what defines our trade ethic:
+            </p>
+          </div>
+
+          <!-- Vertical Cards Grid -->
+          <div class="space-y-4">
+            
+            <!-- Card 1: Quality Control -->
+            <div class="flex gap-4 p-6 rounded-2xl border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300 bg-white">
+              <span class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 text-lg">
+                <i class="fa-solid fa-shield-halved"></i>
+              </span>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900">Quality Control</h4>
+                <p class="text-muted text-sm mt-1 leading-relaxed">
+                  We ensure strict quality control measures at every stage of the manufacturing process, guaranteeing the purity, aroma, and flavor of every batch we export.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2: Easy Service -->
+            <div class="flex gap-4 p-6 rounded-2xl border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300 bg-white">
+              <span class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 text-lg">
+                <i class="fa-solid fa-truck-fast"></i>
+              </span>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900">Easy Service</h4>
+                <p class="text-muted text-sm mt-1 leading-relaxed">
+                  We streamline our customer service processes to make every interaction with TropicSpice Global effortless — from first inquiry to delivery.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: Trust -->
+            <div class="flex gap-4 p-6 rounded-2xl border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300 bg-white">
+              <span class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 text-lg">
+                <i class="fa-solid fa-handshake"></i>
+              </span>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900">Trust</h4>
+                <p class="text-muted text-sm mt-1 leading-relaxed">
+                  Since 2010, we've built lasting relationships with clients around the world through consistency in taste, quality, and reliability, backed by APEDA certification.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

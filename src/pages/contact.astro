@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InnerBanner from '../components/InnerBanner.astro';
+---
+<BaseLayout title="Contact Us | TROPICSPICE GLOBAL">
+  <InnerBanner image="/images/contact-banner.jpg" title="Contact Us" />
+
+  <section class="bg-white py-16 md:py-24 relative">
+    <div class="max-w-container mx-auto px-4 relative z-10">
+      
+      <!-- Split Layout: Info Cards on Left, Form on Right -->
+      <div class="grid lg:grid-cols-12 gap-12">
+        
+        <!-- Left Side: Contact details -->
+        <div class="lg:col-span-5 space-y-8">
+          <div>
+            <span class="text-brown text-sm font-bold tracking-wider uppercase">// Get in Touch</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-2 tracking-tight">
+              Start a <span class="text-primary font-serif font-medium">Conversation</span>
+            </h2>
+            <p class="text-muted mt-4 leading-relaxed">
+              Have questions about our export procedures, sample testing, or bulk spice sourcing? Send us an inquiry and our sales team will reach back within 24 hours.
+            </p>
+          </div>
+
+          <!-- Contact details list cards -->
+          <div class="space-y-4 pt-4">
+            
+            <!-- Address Card -->
+            <div class="flex gap-4 p-5 rounded-2xl border border-gray-100 bg-white shadow-sm">
+              <span class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 text-lg">
+                <i class="fa-solid fa-location-dot"></i>
+              </span>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Our Address</h4>
+                <p class="text-muted text-sm mt-1">2/98 Manibhai Park Society, Opp. Sayajipura, Ajwa Road, Vadodara - 390019</p>
+              </div>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="flex gap-4 p-5 rounded-2xl border border-gray-100 bg-white shadow-sm">
+              <span class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 text-lg">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Call/WhatsApp</h4>
+                <p class="text-muted text-sm mt-1">+91 - 98257 00048<br />+91 - 97149 33303</p>
+              </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="flex gap-4 p-5 rounded-2xl border border-gray-100 bg-white shadow-sm">
+              <span class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 text-lg">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Email Us</h4>
+                <p class="text-muted text-sm mt-1">info@tropicspiceglobal.com</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Side: Contact Form -->
+        <div class="lg:col-span-7">
+          <div class="bg-white border border-gray-100 p-8 md:p-10 rounded-[32px] shadow-xl">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+            
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-bold uppercase text-gray-500 tracking-wider mb-2">Your Name</label>
+                  <input type="text" name="name" required placeholder="John Doe"
+                    class="w-full px-5 py-4 bg-gray-50/50 border border-gray-200 rounded-2xl text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:bg-white transition" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase text-gray-500 tracking-wider mb-2">Your Phone</label>
+                  <input type="tel" name="phone" placeholder="+91 98765 43210"
+                    class="w-full px-5 py-4 bg-gray-50/50 border border-gray-200 rounded-2xl text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:bg-white transition" />
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-xs font-bold uppercase text-gray-500 tracking-wider mb-2">Your Email</label>
+                <input type="email" name="email" required placeholder="john@example.com"
+                  class="w-full px-5 py-4 bg-gray-50/50 border border-gray-200 rounded-2xl text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:bg-white transition" />
+              </div>
+              
+              <div>
+                <label class="block text-xs font-bold uppercase text-gray-500 tracking-wider mb-2">Your Message</label>
+                <textarea name="message" rows="5" required placeholder="Describe your spice sourcing requirements..."
+                  class="w-full px-5 py-4 bg-gray-50/50 border border-gray-200 rounded-2xl text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:bg-white transition resize-none"></textarea>
+              </div>
+              
+              <button type="submit"
+                class="w-full py-4 rounded-full bg-primary text-white font-bold uppercase tracking-wider hover:bg-accent transition shadow-md hover:shadow-lg">
+                Submit Inquiry
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

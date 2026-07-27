@@ -1,0 +1,113 @@
+---
+const testimonials = [
+  {
+    quote: "TropicSpice Global has consistently delivered spices of excellent color and strength. Their whole red chilies are of superb export quality.",
+    name: "Alex Johnson",
+    role: "Spices Importer, UK"
+  },
+  {
+    quote: "Very reliable partner. Their APEDA certification gave us confidence, and the cumin seeds we imported had a rich, native aroma.",
+    name: "Sarah Miller",
+    role: "Procurement Manager, Germany"
+  },
+  {
+    quote: "The quality of their Mukhwas and turmeric powder is unmatched. We have received positive feedback from our local retail clients.",
+    name: "Rajesh Patel",
+    role: "Distributor, UAE"
+  }
+];
+---
+<section class="relative bg-primary py-16 md:py-24 overflow-hidden">
+  <!-- Subtle decorative shapes -->
+  <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+
+  <div class="max-w-container mx-auto px-4 relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Text content (Left 4 Cols) -->
+      <div class="lg:col-span-4 space-y-4 text-white text-left">
+        <span class="text-white/80 text-sm font-bold tracking-wider uppercase inline-block">
+          // Testimonials
+        </span>
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight">
+          What Our <br/><span class="font-serif font-medium">Clients Say</span>
+        </h2>
+        <p class="text-white/80 leading-relaxed text-sm">
+          We pride ourselves on our export consistency, product quality, and long-term partnerships with distributors around the globe.
+        </p>
+        
+        <!-- Navigation arrows -->
+        <div class="flex gap-2 pt-4">
+          <button class="swiper-button-prev-testi w-11 h-11 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition flex items-center justify-center">
+            <i class="fa-solid fa-chevron-left text-sm"></i>
+          </button>
+          <button class="swiper-button-next-testi w-11 h-11 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition flex items-center justify-center">
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Testimonial Slider (Right 8 Cols) -->
+      <div class="lg:col-span-8">
+        <div class="swiper testimonialSwiper">
+          <div class="swiper-wrapper">
+            {testimonials.map((t) => (
+              <div class="swiper-slide h-auto">
+                <div class="bg-white rounded-[32px] p-8 md:p-12 shadow-2xl h-full flex flex-col justify-between border border-white/10 relative overflow-hidden">
+                  <!-- Large quote mark decoration -->
+                  <span class="absolute right-8 top-6 text-primary/10 text-8xl font-serif font-bold leading-none pointer-events-none">“</span>
+                  
+                  <div class="space-y-4 relative z-10">
+                    <!-- Rating Stars -->
+                    <div class="flex gap-1 text-[#FBBF24]">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                    <!-- Quote Text -->
+                    <p class="text-gray-700 text-base md:text-lg leading-relaxed italic">
+                      "{t.quote}"
+                    </p>
+                  </div>
+                  
+                  <!-- User Metadata -->
+                  <div class="pt-6 mt-6 border-t border-gray-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-gray-900 text-sm md:text-base">{t.name}</h4>
+                      <p class="text-xs text-muted font-medium">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.testimonialSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      breakpoints: {
+        768: { slidesPerView: 2 },
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-testi',
+        prevEl: '.swiper-button-prev-testi',
+      },
+    });
+  });
+</script>

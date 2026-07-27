@@ -1,0 +1,156 @@
+---
+export interface Props {
+  title?: string;
+}
+const { title = 'TROPICSPICE GLOBAL' } = Astro.props;
+import '../styles/global.css';
+const pathname = Astro.url.pathname;
+const isActive = (path: string) => {
+  if (path === '/') {
+    return pathname === '/' || pathname === '';
+  }
+  return pathname.startsWith(path);
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/fav.ico" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montez&family=Montserrat:wght@300;400;500;600;700;800;900&family=Suranna&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body class="font-sans text-black">
+  <header class="fixed top-0 left-0 right-0 z-[120] bg-white/95 shadow-md backdrop-blur-sm">
+    <div class="max-w-container mx-auto px-4">
+      <nav class="flex items-center justify-between py-3">
+        <a href="/" class="block">
+          <img src="/images/logo.png" alt="TROPICSPICE GLOBAL" class="w-[110px] md:w-[130px]" />
+        </a>
+        <button id="navToggle" class="md:hidden w-10 h-8 flex flex-col justify-center gap-1.5" aria-label="Toggle navigation">
+          <span class="block h-0.5 w-6 bg-primary"></span>
+          <span class="block h-0.5 w-6 bg-primary"></span>
+          <span class="block h-0.5 w-6 bg-primary"></span>
+        </button>
+        <ul id="navMenu" class="hidden md:flex items-center gap-4">
+          <li>
+            <a href="/" class={`text-[16px] uppercase px-3 py-2 rounded transition-colors duration-200 font-bold ${isActive('/') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/about" class={`text-[16px] uppercase px-3 py-2 rounded transition-colors duration-200 font-bold ${isActive('/about') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="/products/spices" class={`text-[16px] uppercase px-3 py-2 rounded transition-colors duration-200 font-bold ${isActive('/products') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+              Our Products
+            </a>
+          </li>
+          <li>
+            <a href="/certificate" class={`text-[16px] uppercase px-3 py-2 rounded transition-colors duration-200 font-bold ${isActive('/certificate') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+              Our Certificate
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class={`text-[16px] uppercase px-3 py-2 rounded transition-colors duration-200 font-bold ${isActive('/contact') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+              Contact Us
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <ul id="navMenuMobile" class="hidden flex-col gap-1 pb-4 md:hidden border-t border-gray-100 mt-2">
+        <li>
+          <a href="/" class={`block py-2 px-3 rounded uppercase transition-colors duration-200 font-bold ${isActive('/') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/about" class={`block py-2 px-3 rounded uppercase transition-colors duration-200 font-bold ${isActive('/about') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+            About Us
+          </a>
+        </li>
+        <li>
+          <a href="/products/spices" class={`block py-2 px-3 rounded uppercase transition-colors duration-200 font-bold ${isActive('/products') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+            Our Products
+          </a>
+        </li>
+        <li>
+          <a href="/certificate" class={`block py-2 px-3 rounded uppercase transition-colors duration-200 font-bold ${isActive('/certificate') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+            Our Certificate
+          </a>
+        </li>
+        <li>
+          <a href="/contact" class={`block py-2 px-3 rounded uppercase transition-colors duration-200 font-bold ${isActive('/contact') ? 'bg-primary text-white' : 'text-primary hover:bg-primary hover:text-white'}`}>
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="relative overflow-hidden bg-dark py-16">
+    <img src="/images/footer-shp1.png" alt="" class="absolute bottom-[-35px] left-0 w-1/4 mix-blend-multiply pointer-events-none" />
+    <img src="/images/footer-shp2.png" alt="" class="absolute top-[-60px] right-0 w-1/5 mix-blend-multiply pointer-events-none" />
+    <div class="max-w-container mx-auto px-4 relative z-10 text-center">
+      <a href="/"><img src="/images/logo.png" alt="TROPICSPICE GLOBAL" class="w-[140px] mx-auto mb-8" /></a>
+      <p class="text-footertext mb-3">2/98 Manibhai Park Society, Opp. Sayajipura, Ajwa Road, Vadodara - 390019</p>
+      <p class="text-footertext mb-3">
+        <a href="mailto:info@tropicspiceglobal.com" class="hover:text-primary transition">info@tropicspiceglobal.com</a>
+      </p>
+      <p class="text-footertext mb-3">
+        <a href="tel:+919825700048" class="hover:text-primary transition">+91 - 98257 00048</a> /
+        <a href="tel:+919714933303" class="hover:text-primary transition">+91 - 97149 33303</a>
+      </p>
+      <div class="flex items-center justify-center gap-2.5 mt-6">
+        <a href="https://www.facebook.com/authentic.spice.export" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-darker flex items-center justify-center text-white hover:bg-accent hover:border-accent transition">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/authentic_spice_export/" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-darker flex items-center justify-center text-white hover:bg-accent hover:border-accent transition">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="w-12 h-12 rounded-full border border-darker flex items-center justify-center text-white hover:bg-accent hover:border-accent transition">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div class="bg-darker py-5 text-center">
+    <p class="text-copytext text-sm">Copyright {new Date().getFullYear()} TropicSpice Global. All Rights Reserved.</p>
+  </div>
+
+  <a href="https://api.whatsapp.com/send?phone=+919825700048&text=Hi, I'd like to know more about your spices"
+     target="_blank" rel="noopener"
+     class="fixed z-[999] w-[50px] right-[30px] bottom-[100px] hover:-translate-y-2 transition-transform">
+    <img src="/images/whats-img.png" alt="Chat on WhatsApp" class="w-full" />
+  </a>
+  <button id="myBtn" aria-label="Back to top"
+    class="fixed z-[999] w-[50px] h-[50px] rounded-full border-2 border-accent bg-accent text-white right-[30px] bottom-[30px] opacity-0 invisible transition-all hover:bg-white hover:text-accent">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenuMobile = document.getElementById('navMenuMobile');
+    navToggle?.addEventListener('click', () => navMenuMobile?.classList.toggle('hidden'));
+
+    const btn = document.getElementById('myBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btn?.classList.remove('opacity-0', 'invisible');
+      } else {
+        btn?.classList.add('opacity-0', 'invisible');
+      }
+    });
+    btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

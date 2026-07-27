@@ -1,0 +1,35 @@
+---
+export interface Props {
+  eyebrow?: string;
+  title: string;
+}
+const { eyebrow = 'Discover', title } = Astro.props;
+---
+<section class="relative w-full h-screen bg-cover bg-center flex items-center" style="background-image:url('/images/banner-back.jpg')">
+  <!-- Original Floating Animated Spice Images -->
+  <img src="/images/banner-move-img1.png" alt="" class="absolute top-[20%] left-[25%] w-[12%] animate-[float_4s_ease-in-out_infinite]" />
+  <img src="/images/banner-move-img2.png" alt="" class="absolute top-[20%] right-[25%] w-[12%] animate-[float_5s_ease-in-out_infinite]" />
+  <img src="/images/banner-move-img3.png" alt="" class="absolute bottom-[20%] left-[24%] w-[7%] animate-[float_6s_ease-in-out_infinite]" />
+  <img src="/images/banner-move-img4.png" alt="" class="absolute bottom-[18%] right-[24%] w-[10%] animate-[float_4.5s_ease-in-out_infinite]" />
+
+  <!-- Centered Hero Text content -->
+  <div class="relative z-[5] w-full text-center px-4">
+    <h2 class="font-script text-primary text-[40px] md:text-[65px] mb-3">{eyebrow}</h2>
+    <h1 class="font-serif text-white text-[32px] md:text-[65px] relative pb-12 max-w-4xl mx-auto">
+      {title}
+      <span class="absolute bottom-0 left-0 right-0 mx-auto w-[275px] h-[34px] bg-no-repeat bg-contain bg-center" style="background-image:url('/images/title-shap.png')"></span>
+    </h1>
+  </div>
+
+  <!-- Original Shape Decorations -->
+  <img src="/images/banner-shp1.png" alt="" class="absolute bottom-0 left-0 right-0 mx-auto w-1/2 pointer-events-none" />
+  <img src="/images/banner-shp2.png" alt="" class="absolute right-0 top-1/2 -translate-y-1/2 w-1/5 pointer-events-none" />
+  <img src="/images/banner-shp3.png" alt="" class="absolute left-0 top-1/2 -translate-y-1/2 w-1/5 pointer-events-none" />
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+</style>

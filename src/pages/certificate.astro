@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InnerBanner from '../components/InnerBanner.astro';
+---
+<BaseLayout title="Our Certificate | TROPICSPICE GLOBAL">
+  <InnerBanner image="/images/certi-banner.jpg" title="Our Certificate" />
+
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-container mx-auto px-4">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brown text-sm font-bold tracking-wider uppercase inline-block mb-2">
+          // Export Credentials
+        </span>
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+          Government Recognized <span class="text-primary font-serif font-medium">Standards</span>
+        </h2>
+        <p class="text-muted mt-4">
+          As a registered exporter of agricultural goods from India, we comply with strict regulations to ensure international food safety standards are met on every batch.
+        </p>
+      </div>
+
+      <!-- Certifications cards grid -->
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Standard 1 -->
+        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-6">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">APEDA Accreditation</h3>
+          <p class="text-muted leading-relaxed text-sm">
+            Our association with the <strong>Agricultural and Processed Food Products Export Development Authority (APEDA)</strong> proves our commitment to food safety and compliance with global import regulations.
+          </p>
+        </div>
+
+        <!-- Standard 2 -->
+        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-6">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Strict Quality Control</h3>
+          <p class="text-muted leading-relaxed text-sm">
+            We adhere to rigorous protocols from initial sourcing to bulk packaging and transport. The products are stored and shipped under strict hygienic controls to retain flavor and quality.
+          </p>
+        </div>
+
+        <!-- Standard 3 -->
+        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-6">
+            <i class="fa-solid fa-vial"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Purity Testing</h3>
+          <p class="text-muted leading-relaxed text-sm">
+            Every batch undergoes routine lab checking to verify chemical residues, moisture control, volatile oil percentages, and ash content parameters based on destination country norms.
+          </p>
+        </div>
+
+        <!-- Standard 4 -->
+        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-xl mb-6">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Global Acceptance</h3>
+          <p class="text-muted leading-relaxed text-sm">
+            Our adherence to global standards has enabled us to satisfy regulatory demands in the Middle East, Europe, UAE, and Asian markets seamlessly.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
