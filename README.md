@@ -12,8 +12,8 @@ The site has been completely updated to match the new **TropicSpice Global** bra
 
 | Token | Hex | Target Sourced From Logo | Used For |
 |---|---|---|---|
-| `primary` | `#21550A` | "Tropic" wordmark (dark forest green) | Headings, buttons, primary active/hover states |
-| `accent` | `#1B4D0A` | Globe icon/highlights (deeper forest green) | Back-to-top button, WhatsApp CTA hover |
+| `primary` | `#125920` | Brand green | Headings, buttons, primary active/hover states, cards active highlights |
+| `accent` | `#125920` | Brand green | Back-to-top button, WhatsApp CTA hover, hovers |
 | `brown` | `#D21F1B` | Red pepper accent (chili/mirchi red) | Uppercase kicker/badge labels, accents |
 | `cream` | `#FFFFFF` | Wiped clean for modern style | Page background (pure white) |
 | `offwhite` | `#FFFFFF` | Wiped clean for modern style | Section backgrounds (pure white) |
@@ -21,7 +21,7 @@ The site has been completely updated to match the new **TropicSpice Global** bra
 | `muted` | `#4B5563` | Neutral dark gray | Body paragraph text |
 
 ### B. Typography & Fonts
-* **Georgia Regular:** Used for serif headings (including `"Premium Quality Spices Globally"` in the Hero and inner page title highlights). It is styled in normal/roman weight (no longer italicized).
+* **Georgia Regular:** Used for serif headings (including the Hero title and page title highlights). It is styled in normal/roman bold weight (no longer italicized).
 * **Montserrat:** Used for all sans-serif body text, navigation tabs, buttons, and sub-titles.
 * **Montez:** Used for custom script accents.
 
@@ -33,6 +33,7 @@ The site has been completely updated to match the new **TropicSpice Global** bra
 ### D. Reimagined Centered Hero
 * Centered layout with a clean gradient and dot grid background.
 * The brand logo is placed in the center, encircled by a **2.5x scaled rotating ring** carrying **8 distinct miniature cropped circular spice badges** (Cumin, Cardamom, Chili, Pepper, Star Anise, Cloves, Turmeric, Mustard).
+* Replaced the word "GLOBAL" text span with a single word title: "TropicSpice" styled with green (`#125920`) and terracotta orange-red (`#C84B15`) side by side.
 * Dynamic floating spice cards move organically in the background using custom CSS rotation and translations.
 
 ### E. Products Consolidation
@@ -69,8 +70,51 @@ npm run preview  # serve the compiled production build locally
 
 ---
 
-## 4. Launch Checklist
+## 4. Before Going Live — Action Items (Form & Email Configuration)
 
-1. **Email / Domain Config:** Update `astro.config.mjs` and the contact page/footer mailto links with your real domain details.
-2. **Contact Form Inquiries:** In `src/pages/contact.astro`, update the `<form action="...">` endpoint with your active **Formspree Form ID** (or Netlify/Web3Forms endpoint).
+1. **Contact Form Config:** 
+   * Open `src/pages/contact.astro`
+   * Find the `<form>` tag:
+     ```html
+     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" ...>
+     ```
+   * Replace `YOUR_FORM_ID` with your real Formspree form ID (get a free one at [formspree.io](https://formspree.io)). 
+   * Formspree will automatically handle form submissions and forward them to your chosen email address. Alternatively, you can swap it with Netlify Forms, Web3Forms, or custom endpoints.
+2. **Domain Config:** Update `astro.config.mjs` and the contact page/footer mailto links with your real domain details.
 3. **Address details:** Review and verify the location coordinates/address in `src/pages/contact.astro` and `src/layouts/BaseLayout.astro`.
+
+---
+
+## 5. Deploying — Cloudflare Pages (Recommended)
+
+1. Push this project to a GitHub (or GitLab) repository.
+2. In the Cloudflare dashboard: **Workers & Pages → Create → Pages → Connect to Git** → select your repository.
+3. Build settings:
+   - **Framework preset:** Astro
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+4. Deploy. Cloudflare gives you a `*.pages.dev` URL immediately.
+5. Add your custom domain: **Custom domains → Set up a domain** → enter your real domain → Cloudflare shows you the DNS records to add.
+
+Every `git push` after this auto-builds and redeploys — no FTP, no manual file uploads.
+
+---
+
+## 6. Connecting a GoDaddy Domain
+
+Your domain stays registered at GoDaddy — you're only changing where its DNS points, not moving the registration.
+
+### Option A — Move DNS management to Cloudflare (Recommended)
+1. In Cloudflare: **Add a site** → enter your domain → Cloudflare scans existing DNS records and shows two nameservers.
+2. In GoDaddy: **My Products → your domain → DNS → Nameservers → Change** → "Enter my own nameservers" → paste the two Cloudflare nameservers.
+3. Wait for propagation (usually 15 min–a few hours, occasionally up to 24–48h).
+4. In Cloudflare Pages → **Custom domains** → add your domain and `www` → Cloudflare auto-creates the correct records.
+
+### Option B — Keep DNS at GoDaddy, point records at Cloudflare Pages
+1. Cloudflare Pages → **Custom domains** → add your domain → note the `.pages.dev` CNAME target it gives you.
+2. In GoDaddy DNS: add a **CNAME** record:
+   - **Name:** `www`
+   - **Value:** `your-app-name.pages.dev`
+3. For the bare/apex domain, GoDaddy doesn't support CNAME at the root:
+   - Use GoDaddy's **Forwarding** to redirect the apex (`tropicspiceglobal.com`) to `www.tropicspiceglobal.com`.
+4. SSL is issued automatically by Cloudflare once the CNAME resolves.
