@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="asx-site">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/asx-site.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
