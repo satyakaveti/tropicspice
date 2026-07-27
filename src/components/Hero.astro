@@ -3,33 +3,78 @@ export interface Props {
   eyebrow?: string;
   title: string;
 }
-const { eyebrow = 'Discover', title } = Astro.props;
+const { eyebrow = 'Discover Pure Spices', title } = Astro.props;
 ---
-<section class="relative w-full h-screen bg-cover bg-center flex items-center" style="background-image:url('/images/banner-back.jpg')">
-  <!-- Original Floating Animated Spice Images -->
-  <img src="/images/banner-move-img1.png" alt="" class="absolute top-[20%] left-[25%] w-[12%] animate-[float_4s_ease-in-out_infinite]" />
-  <img src="/images/banner-move-img2.png" alt="" class="absolute top-[20%] right-[25%] w-[12%] animate-[float_5s_ease-in-out_infinite]" />
-  <img src="/images/banner-move-img3.png" alt="" class="absolute bottom-[20%] left-[24%] w-[7%] animate-[float_6s_ease-in-out_infinite]" />
-  <img src="/images/banner-move-img4.png" alt="" class="absolute bottom-[18%] right-[24%] w-[10%] animate-[float_4.5s_ease-in-out_infinite]" />
+<section class="relative w-full min-h-screen bg-gradient-to-b from-primary/5 via-white to-white flex items-center justify-center overflow-hidden pt-20">
+  
+  <!-- Subtle organic background decoration patterns (clean and modern) -->
+  <div class="absolute inset-0 bg-[radial-gradient(rgba(33,85,10,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
-  <!-- Centered Hero Text content -->
-  <div class="relative z-[5] w-full text-center px-4">
-    <h2 class="font-script text-primary text-[40px] md:text-[65px] mb-3">{eyebrow}</h2>
-    <h1 class="font-serif text-white text-[32px] md:text-[65px] relative pb-12 max-w-4xl mx-auto">
-      {title}
-      <span class="absolute bottom-0 left-0 right-0 mx-auto w-[275px] h-[34px] bg-no-repeat bg-contain bg-center" style="background-image:url('/images/title-shap.png')"></span>
-    </h1>
+  <!-- Reimagined Custom Floating Spice Cards -->
+  <!-- Red Chili - Top Left -->
+  <div class="absolute top-[18%] left-[6%] md:left-[14%] z-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float1_7s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
+    <img src="/images/whole-indian-red-chili.jpg" alt="Indian Red Chili" class="w-full h-full object-cover" />
   </div>
 
-  <!-- Original Shape Decorations -->
-  <img src="/images/banner-shp1.png" alt="" class="absolute bottom-0 left-0 right-0 mx-auto w-1/2 pointer-events-none" />
-  <img src="/images/banner-shp2.png" alt="" class="absolute right-0 top-1/2 -translate-y-1/2 w-1/5 pointer-events-none" />
-  <img src="/images/banner-shp3.png" alt="" class="absolute left-0 top-1/2 -translate-y-1/2 w-1/5 pointer-events-none" />
+  <!-- Cardamom - Top Right -->
+  <div class="absolute top-[15%] right-[6%] md:right-[14%] z-10 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float2_8s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
+    <img src="/images/green-cardamom.jpg" alt="Green Cardamom" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- Star Anise - Bottom Left -->
+  <div class="absolute bottom-[16%] left-[8%] md:left-[16%] z-10 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float3_9s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
+    <img src="/images/star-anise.jpg" alt="Star Anise" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- Turmeric - Bottom Right -->
+  <div class="absolute bottom-[20%] right-[8%] md:right-[16%] z-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float4_6s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
+    <img src="/images/haldi-powder.jpg" alt="Turmeric Powder" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- Centered Content Wrapper -->
+  <div class="relative z-20 max-w-4xl mx-auto text-center px-4 space-y-6">
+    <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brown/10 text-brown text-xs md:text-sm font-bold uppercase tracking-widest animate-pulse">
+      🌶️ {eyebrow}
+    </span>
+    
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight tracking-tight font-sans">
+      Sourcing Premium <br/>
+      <span class="text-primary font-serif font-normal italic">{title}</span>
+    </h1>
+
+    <p class="text-muted text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+      Sustainably sourced, carefully processed, and globally exported. Experience the native purity, rich flavor, and raw aroma of authentic Indian spices.
+    </p>
+
+    <!-- Centered CTA Action Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+      <a href="/products/spices" class="px-8 py-3.5 rounded-full bg-primary text-white font-bold tracking-wide uppercase hover:bg-accent transition shadow-md hover:shadow-lg">
+        Explore Spices
+      </a>
+      <a href="/contact" class="px-8 py-3.5 rounded-full border-2 border-primary text-primary font-bold tracking-wide uppercase hover:bg-primary hover:text-white transition">
+        Inquire Now
+      </a>
+    </div>
+  </div>
+
 </section>
 
 <style>
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+  /* Unique animation paths combining float and rotation */
+  @keyframes float1 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(4deg); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(-3deg); }
+  }
+  @keyframes float3 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+  }
+  @keyframes float4 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(-4deg); }
   }
 </style>
