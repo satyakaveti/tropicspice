@@ -27,8 +27,9 @@ const isActive = (path: string) => {
   <header id="mainHeader" class="sticky top-0 z-[120] bg-white/95 shadow-md backdrop-blur-sm transition-all duration-300">
     <div class="max-w-container mx-auto px-4">
       <nav id="mainNav" class="flex items-center justify-between py-3 transition-all duration-300">
-        <a href="/" class="block">
-          <img src="/images/logo.png" alt="TROPICSPICE GLOBAL" class="w-[110px] md:w-[130px] object-contain transition-all duration-300" id="headerLogo" />
+        <a href="/" class="block relative w-[110px] md:w-[130px] h-[45px] md:h-[55px] transition-all duration-300" id="logoContainer">
+          <img src="/images/logo.png" alt="TROPICSPICE GLOBAL" class="absolute inset-y-0 left-0 h-full w-auto object-contain transition-all duration-300 opacity-100 scale-100" id="logoSquare" />
+          <img src="/images/logo-horizontal.png" alt="TROPICSPICE GLOBAL" class="absolute inset-y-0 left-0 h-full w-auto object-contain transition-all duration-300 opacity-0 scale-95 pointer-events-none" id="logoHorizontal" />
         </a>
         <button id="navToggle" class="md:hidden w-10 h-8 flex flex-col justify-center gap-1.5" aria-label="Toggle navigation">
           <span class="block h-0.5 w-6 bg-primary"></span>
@@ -144,8 +145,10 @@ const isActive = (path: string) => {
 
     const btn = document.getElementById('myBtn');
     const mainHeader = document.getElementById('mainHeader');
-    const headerLogo = document.getElementById('headerLogo') as HTMLImageElement;
     const mainNav = document.getElementById('mainNav');
+    const logoContainer = document.getElementById('logoContainer');
+    const logoSquare = document.getElementById('logoSquare');
+    const logoHorizontal = document.getElementById('logoHorizontal');
 
     window.addEventListener('scroll', () => {
       // Back to top button
@@ -155,24 +158,38 @@ const isActive = (path: string) => {
         btn?.classList.add('opacity-0', 'invisible');
       }
 
-      // Header shrink and logo swap
+      // Header shrink and logo crossfade
       if (window.scrollY > 50) {
         mainHeader?.classList.add('shadow-lg');
         mainNav?.classList.remove('py-3');
         mainNav?.classList.add('py-2');
-        if (headerLogo) {
-          headerLogo.src = '/images/logo-horizontal.png';
-          headerLogo.classList.remove('w-[110px]', 'md:w-[130px]');
-          headerLogo.classList.add('h-[50px]', 'w-auto');
+        if (logoContainer) {
+          logoContainer.classList.remove('h-[45px]', 'md:h-[55px]');
+          logoContainer.classList.add('h-[35px]', 'md:h-[40px]');
+        }
+        if (logoSquare) {
+          logoSquare.classList.remove('opacity-100', 'scale-100');
+          logoSquare.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        }
+        if (logoHorizontal) {
+          logoHorizontal.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+          logoHorizontal.classList.add('opacity-100', 'scale-100');
         }
       } else {
         mainHeader?.classList.remove('shadow-lg');
         mainNav?.classList.remove('py-2');
         mainNav?.classList.add('py-3');
-        if (headerLogo) {
-          headerLogo.src = '/images/logo.png';
-          headerLogo.classList.remove('h-[50px]', 'w-auto');
-          headerLogo.classList.add('w-[110px]', 'md:w-[130px]');
+        if (logoContainer) {
+          logoContainer.classList.remove('h-[35px]', 'md:h-[40px]');
+          logoContainer.classList.add('h-[45px]', 'md:h-[55px]');
+        }
+        if (logoSquare) {
+          logoSquare.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+          logoSquare.classList.add('opacity-100', 'scale-100');
+        }
+        if (logoHorizontal) {
+          logoHorizontal.classList.remove('opacity-100', 'scale-100');
+          logoHorizontal.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
         }
       }
     });

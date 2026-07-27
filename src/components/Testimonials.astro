@@ -95,10 +95,13 @@ const testimonials = [
 
 <script>
   import Swiper from 'swiper';
+  import { Navigation } from 'swiper/modules';
   import 'swiper/css';
+  import 'swiper/css/navigation';
 
   document.addEventListener('DOMContentLoaded', () => {
     new Swiper('.testimonialSwiper', {
+      modules: [Navigation],
       slidesPerView: 1,
       spaceBetween: 24,
       breakpoints: {
