@@ -12,33 +12,69 @@ const { eyebrow = 'Discover Pure Spices', title } = Astro.props;
 
   <!-- Reimagined Custom Floating Spice Cards -->
   <!-- Red Chili - Top Left -->
-  <div class="absolute top-[18%] left-[6%] md:left-[14%] z-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float1_7s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
+  <div class="absolute top-[18%] left-[2%] md:left-[6%] z-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float1_7s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
     <img src="/images/whole-indian-red-chili.jpg" alt="Indian Red Chili" class="w-full h-full object-cover" />
   </div>
 
   <!-- Cardamom - Top Right -->
-  <div class="absolute top-[15%] right-[6%] md:right-[14%] z-10 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float2_8s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
+  <div class="absolute top-[15%] right-[2%] md:right-[6%] z-10 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float2_8s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
     <img src="/images/green-cardamom.jpg" alt="Green Cardamom" class="w-full h-full object-cover" />
   </div>
 
   <!-- Star Anise - Bottom Left -->
-  <div class="absolute bottom-[16%] left-[8%] md:left-[16%] z-10 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float3_9s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
+  <div class="absolute bottom-[16%] left-[3%] md:left-[8%] z-10 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float3_9s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
     <img src="/images/star-anise.jpg" alt="Star Anise" class="w-full h-full object-cover" />
   </div>
 
   <!-- Turmeric - Bottom Right -->
-  <div class="absolute bottom-[20%] right-[8%] md:right-[16%] z-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float4_6s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
+  <div class="absolute bottom-[20%] right-[3%] md:right-[8%] z-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-[float4_6s_ease-in-out_infinite] hover:scale-110 transition-transform duration-300">
     <img src="/images/haldi-powder.jpg" alt="Turmeric Powder" class="w-full h-full object-cover" />
   </div>
 
   <!-- Centered Content Wrapper -->
   <div class="relative z-20 max-w-4xl mx-auto text-center px-4 space-y-6">
-    <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brown/10 text-brown text-xs md:text-sm font-bold uppercase tracking-widest animate-pulse">
-      🌶️ {eyebrow}
-    </span>
     
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight tracking-tight font-sans">
-      Sourcing Premium <br/>
+    <!-- Centered Logo with Rotating Ring (2.5x Scaled) -->
+    <div class="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] mx-auto flex items-center justify-center mb-8">
+      <div class="absolute inset-0 border-2 border-dashed border-primary/20 rounded-full animate-[spin_35s_linear_infinite]">
+        <!-- 8 Different Real Spice Badges positioned around the ring -->
+        <!-- 0 deg: Cumin -->
+        <div class="absolute -top-5 md:-top-7 left-1/2 -translate-x-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-md bg-white">
+          <img src="/images/cumin.jpg" alt="Cumin" class="w-full h-full object-cover" />
+        </div>
+        <!-- 45 deg: Cardamom -->
+        <div class="absolute top-[8%] right-[8%] w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-md bg-white">
+          <img src="/images/green-cardamom.jpg" alt="Cardamom" class="w-full h-full object-cover" />
+        </div>
+        <!-- 90 deg: Chili -->
+        <div class="absolute -right-5 md:-right-7 top-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-md bg-white">
+          <img src="/images/whole-indian-red-chili.jpg" alt="Chili" class="w-full h-full object-cover" />
+        </div>
+        <!-- 135 deg: Black Pepper -->
+        <div class="absolute bottom-[8%] right-[8%] w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-md bg-white">
+          <img src="/images/black-pepper.jpg" alt="Black Pepper" class="w-full h-full object-cover" />
+        </div>
+        <!-- 180 deg: Star Anise -->
+        <div class="absolute -bottom-5 md:-bottom-7 left-1/2 -translate-x-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-md bg-white">
+          <img src="/images/star-anise.jpg" alt="Star Anise" class="w-full h-full object-cover" />
+        </div>
+        <!-- 225 deg: Cloves -->
+        <div class="absolute bottom-[8%] left-[8%] w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-md bg-white">
+          <img src="/images/cloves.jpg" alt="Cloves" class="w-full h-full object-cover" />
+        </div>
+        <!-- 270 deg: Turmeric -->
+        <div class="absolute -left-5 md:-left-7 top-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-md bg-white">
+          <img src="/images/whole-haldi.jpg" alt="Turmeric" class="w-full h-full object-cover" />
+        </div>
+        <!-- 315 deg: Mustard -->
+        <div class="absolute top-[8%] left-[8%] w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-md bg-white">
+          <img src="/images/mustard-seeds.jpg" alt="Mustard" class="w-full h-full object-cover" />
+        </div>
+      </div>
+      <img src="/images/logo.png" alt="TropicSpice Global Logo" class="w-[200px] md:w-[300px] object-contain relative z-10 hover:scale-105 transition-transform duration-300" />
+    </div>
+    
+    <h1 class="text-4xl md:text-6xl lg:text-7.5xl font-extrabold text-gray-900 leading-tight tracking-tight font-sans">
       <span class="text-primary font-serif font-normal italic">{title}</span>
     </h1>
 
